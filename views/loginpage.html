@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login page</title>
+  </head>
+  <body>
+    <form action="/">
+      <input type="text" name="username" id="username" />
+      <button type="submit" id="submit">Login</button>
+    </form>
+    <!-- <script src="./script.js"> -->
+    <script>
+      let button = document.getElementById("submit");
+
+      button.addEventListener("click", (e) => {
+        let username = document.getElementById("username").value;
+        localStorage.setItem("username", username);
+      });
+
+      window.onload = function () {
+        let username = localStorage.getItem("username");
+        if (username != null) {
+          location.href = "/";
+        }
+      };
+    </script>
+  </body>
+</html>
